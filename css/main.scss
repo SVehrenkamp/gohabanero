@@ -1,0 +1,116 @@
+@import "../js/vendor/bootstrap/dist/css/bootstrap.css";
+@import "la-babaca.css";
+
+/*Variables*/
+$orange:#FF9900;
+
+#gohabanero{
+	display: block;
+	width: 100%;
+	overflow: auto;
+	position: relative;
+	height: 100%;
+
+	nav{
+		margin:0;
+
+		a{
+			&.navbar-brand{
+				font-family:'Flaticon';
+				font-size:3em;
+				color:#444;
+
+			}
+		}
+	}
+	span.orange{
+		color:$orange;
+	}
+	.three-pack, .two-pack{
+		display:block;
+		overflow:hidden;
+
+		div{
+			&.col-lg-4, &.col-lg-6{
+				padding:10px;
+				text-align:center;
+			}
+			&.inner{
+				
+				div.glyphicon{
+					font-size:10em;
+				}
+			}
+		}
+	}
+	.divider{
+		border-bottom:1px solid #ccc;
+	}
+	.jumbotron{
+		text-align:center;
+		background:url('../img/peppers.jpg') top center no-repeat;
+		background-size:260px;
+		background-position:50% 140px;
+		height:320px;
+
+		h1{
+			font-family:'flaticon';
+			color:#555;
+			font-size:8em;
+		}
+	}
+}
+div{
+	&.col-lg-4, &.col-lg-6{
+		padding:10px;
+		text-align:center;
+	}
+	&.inner{
+	}
+}
+
+.footer{
+	padding:20px 0px;
+	width:100%;
+	background:#e1e1e1;
+	overflow:auto;
+	display:block;
+}
+
+@media (max-width: 480px) {
+	#gohabanero{
+
+		.three-pack, .two-pack{
+			div{
+				&.col-lg-4, &.col-lg-6{
+					width:100%;
+					padding:10px;
+					display:block;
+				}
+				&.inner{
+					margin:0 auto;
+				}
+			}
+		}
+		.jumbotron{
+			color:#555;
+			text-align:center;
+			background:url('../img/peppers.jpg') top center no-repeat;
+			background-size:100%;
+		}
+
+		span.orange{
+			color:$orange;
+		}
+	}
+	div{
+		&.col-lg-4, &.col-lg-6{
+			width:100%;
+			padding:10px;
+			display:block;
+		}
+		&.inner{
+			margin:0 auto;
+		}
+	}	
+}

@@ -1,0 +1,30 @@
+{
+  "name": "tgt-cli-boilerplate",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "pretest": "jshint ."
+  },
+  "devDependencies": {
+    "jshint": "^2.5.6",
+    "clean-css": "1.1.7",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.5",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-express-server": "~0.4.5",
+    "grunt-http": "^1.4.0",
+    "grunt-open": "~0.2.2",
+    "grunt-sftp-deploy": "0.0.11",
+    "matchdep": "^0.3.0",
+    "express": "^4.12.4"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "tgt-cli-boilerplate"
+}
