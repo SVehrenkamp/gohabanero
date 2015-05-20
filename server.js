@@ -6,6 +6,6 @@ app.get('/', function (req, res) {
   res.redirect('./index.html');
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(7000, function () {
   console.log('Server listening at http://localhost:3000');
 });

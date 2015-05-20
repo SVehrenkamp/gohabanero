@@ -3,6 +3,7 @@
 
 /*Variables*/
 $orange:#FF9900;
+$gray:#555555;
 
 #gohabanero{
 	display: block;
@@ -10,17 +11,70 @@ $orange:#FF9900;
 	overflow: auto;
 	position: relative;
 	height: 100%;
+	.menu-right{
+		position: absolute;
+  		width: 0px;
+  		top: 0;
+  		right: 0;
+  		bottom: 0;
+  		background: #EFEFEF;
+  		z-index: 1000;
+  		box-shadow:-2px 0px 5px 1px #aaaaaa;
+  		text-align:center;
+  		padding:20% 0 0 0;
+  		display:block;
+  		overflow:hidden;
 
+  		img{
+  			margin:20px 0px;
+  		}
+
+  		a{
+  			text-decoration:none;
+  			font-size:2.2em;
+  			display:block;
+  			color:#555555;
+  			width:100%;
+  			font-weight:100;
+  			margin:10px;
+
+			@media (max-width: 700px) {
+				font-size:1.8em;
+			}
+
+			@media (max-width: 600px) {
+				font-size:1.4em;
+			}
+			@media (max-width: 550px) {
+				font-size:1.2em;
+			}
+
+  		}
+	}
 	nav{
 		margin:0;
-
+		overflow:hidden;
 		a{
 			&.navbar-brand{
 				font-family:'Flaticon';
 				font-size:3em;
-				color:#444;
+				color:#555;
 
 			}
+		}
+		div.navbar-header, div.navbar-collapse{
+			padding:10px 0px;
+
+			img{
+				float:left;
+				margin: -3px 0px 0px 10px;
+			}
+		}
+		button.navbar-toggle{
+			right:-5px;
+			margin-right:0;
+			display:block;
+			position:absolute;
 		}
 	}
 	span.orange{
@@ -34,17 +88,54 @@ $orange:#FF9900;
 			&.col-lg-4, &.col-lg-6{
 				padding:10px;
 				text-align:center;
+				position:relative;
+
+				div.view{
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: #ffffff;
+					z-index: 999;
+					width: 100%;
+					bottom: 0;
+				}
+			}
+			&.col-lg-4{
+				height:320px;
 			}
 			&.inner{
 				
+				a{
+					color:$orange;
+				}
+				h2{
+					font-family:'Flaticon';
+					font-size:4em;
+					color:$gray;
+				}
+				h3{
+					font-family:'Flaticon';
+					font-size:2.5em;
+					color:$gray;
+				}
 				div.glyphicon{
 					font-size:10em;
 				}
 			}
 		}
 	}
+	.two-pack{
+		background:#efefef;
+		img{
+			width:80%;
+			box-shadow:1px 2px 8px #555555;
+			margin:20px 0px 40px 0px;
+			border:10px solid #ffffff;
+		}
+	}
 	.divider{
 		border-bottom:1px solid #ccc;
+		padding:0px 0px 20px 0px;
 	}
 	.jumbotron{
 		text-align:center;
@@ -59,6 +150,31 @@ $orange:#FF9900;
 			font-size:8em;
 		}
 	}
+	div#buy{
+		form{
+			margin:60px 0px 0px 0px;
+		}
+	}
+	div#follow{
+		padding:10px;
+		img{
+			width:48%;
+			margin:10px;
+		}	
+	}
+	div#try{
+		div.glyphicon{
+			font-size:6em;
+			color:$gray;
+		}	
+	}
+
+	div.spacer{
+		width:80%;
+		margin:60px auto;
+		border-bottom:1px dashed #555555;
+
+	}
 }
 div{
 	&.col-lg-4, &.col-lg-6{
@@ -72,12 +188,15 @@ div{
 .footer{
 	padding:20px 0px;
 	width:100%;
-	background:#e1e1e1;
+	background:#999999;
 	overflow:auto;
 	display:block;
+	text-align:center;
+	font-family:'Arial';
+	font-weight:100;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
 	#gohabanero{
 
 		.three-pack, .two-pack{
@@ -96,7 +215,14 @@ div{
 			color:#555;
 			text-align:center;
 			background:url('../img/peppers.jpg') top center no-repeat;
-			background-size:100%;
+			background-size: 300px;
+  			background-position: 50% 80px;
+
+			h1{
+				font-family:'flaticon';
+				color:#555;
+				font-size:4em;
+			}
 		}
 
 		span.orange{

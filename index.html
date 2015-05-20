@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <main id="gohabanero">
+    <main id="gohabanero" ng-app="App">
     <!--Main Container Grid 12-->
     <div class="wrapper">
       <!--Navbar-->
+      
       <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -22,17 +23,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">GO <span class="orange">HABANERO</span></a>
+
+          <a href="#"><img src="img/gh-logo-vert.svg" alt="" height="200"/></a>
         </div>
       
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav pull-right">
-            <li class="active"><a href="#">Buy</a></li>
-            <li><a href="#">Follow</a></li>
-          </ul>
-        </div>
       </nav><!--End Nav-->
+      <div class="menu-right">
+          <a href="tel:507-993-3365" class="tel glyphicon glyphicon-earphone"><span class="logo"> 507.993.3365</span></a>
+          <a href="mailto:gohabanero@gmail.com" class="email glyphicon glyphicon-envelope"><span class="logo"> gohabanero@gmail.com</span></a>
+          <div class="spacer"></div>
+
+          <a href="#"><img src="img/gh-logo-vert-gray.svg" alt="" height="200"/></a>
+        </div>
       <div class="jumbotron">
         <div class="container">
           <h1>Serious <span class="orange">Hot Sauce.</span></h1>
@@ -41,63 +44,52 @@
       <div class="three-pack divider">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div class="inner">
-            <div class="glyphicon glyphicon-fire"></div>
+            <div ui-view="Try"></div>
+            <a href="#/try"><div class="glyphicon glyphicon-fire"></div></a>
             <h2>Try</h2>
-            <p>Try our sauce for free!</p>
           </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div class="inner">
-            <div class="glyphicon glyphicon-barcode"></div>
+            <div ui-view="Buy"></div>
+            <a href="#/buy"><div class="glyphicon glyphicon-barcode"></div></a>
             <h2>Buy</h2>
-            <p>Buy online or instore!</p>
           </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div class="inner">
-            <div class="glyphicon glyphicon-thumbs-up"></div>
+            <div ui-view="Follow"></div>
+            <a href="#/follow"><div class="glyphicon glyphicon-thumbs-up"></div></a>
             <h2>Follow</h2>
-            <p>Follow us on Facebook!</p>
           </div>
         </div>
       </div><!--End Three Pack-->
       <div class="two-pack">
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div class="inner">
-            <img src="img/habanero.png" width="160px"/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut dolor posuere, mollis elit et, tempor dui. Aliquam erat volutpat. Quisque turpis velit, rutrum iaculis ultricies et, bibendum non diam. Nunc vitae vehicula enim. Nullam varius finibus quam, ut porttitor leo ultrices eget.</p>
+            <h3>Only Fresh Ingredients</h3>
+            <img src="img/garden.jpg"/>
+            <p>GO HABANERO hotsauce is a hand crafted sauce made from only the freshest ingredients.  Georgia peaches give the sauce a wonderful sweetness that balances out the heat from the blazing hot, vine ripened habanero peppers.  Produced and packaged locally in Rochester Minnesota, this sauce is sure to become one of your favorites.  Master flavor engineer Dean Steel is hard at work crafting new GO HABANERO flavor varieties that will make your tongue do a happy dance. </p>
           </div>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div class="inner">
-            <img src="img/ribs.jpg" width="200px" style="padding: 66px 0px 20px 0px;"/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut dolor posuere, mollis elit et, tempor dui. Aliquam erat volutpat. Quisque turpis velit, rutrum iaculis ultricies et, bibendum non diam. Nunc vitae vehicula enim. Nullam varius finibus quam, ut porttitor leo ultrices eget.</p>
+            <h3>Made With Care</h3>
+            <img src="img/sauce.jpg"/>
+            <p>This bold flavor enhancer is a sauce that has humble roots.  Established in 2013 when founder, Dean Steele, was experimenting in his kitchen with habanero peppers he had just picked from his family garden.  The result was a delightfully unique sauce that brings life to nearly any dish.  It was a true hit at the Steele family barbecues that summer and after many requests from friends, GO HABANERO went into full scale production. Click 'Buy' above to order a bottle for your family today!</p>
           </div>
         </div>
+        
       </div><!--End Two Pack-->
     </div><!--End Container-->
     </main>
     <div class="footer">
-        <div class="three-pack">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div class="inner">
-            Column 1
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div class="inner">
-            Column 2
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div class="inner">
-            Column 3
-          </div>
-        </div>
-      </div><!--End Three Pack-->
-      </div>
+      <p>507.993.3365   gohabanero@gmail.com   instagram | gohabanero   2015 Go Habanero LLC</p>
+    </div>
+    <script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="js/vendor/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/gohabanero.js"></script>
   </body>
 </html>
