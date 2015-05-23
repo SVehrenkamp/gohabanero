@@ -26,5 +26,9 @@
     "type": "",
     "url": ""
   },
-  "description": "tgt-cli-boilerplate"
+  "description": "tgt-cli-boilerplate",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "stripe": "^3.3.4"
+  }
 }

@@ -1,4 +1,4 @@
-angular.module('App', ['ui.router'])
+angular.module('App', ['ui.router', 'CheckoutCTRL'])
 .config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
@@ -28,6 +28,7 @@ angular.module('App', ['ui.router'])
 			url: '/buy',
 			views: {
 				'Buy': {
+					controller: 'CheckoutCTRL',
 					templateUrl: 'js/partials/buy.partial.html'
 				}
 			}
