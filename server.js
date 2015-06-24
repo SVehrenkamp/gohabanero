@@ -31,6 +31,6 @@ var stripeToken = req.body.stripeToken;
 	});
 });
 
-var server = app.listen(7000, function () {
+var server = app.listen(3000, function () {
   console.log('Server listening at http://localhost:3000');
 });

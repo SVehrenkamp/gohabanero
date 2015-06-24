@@ -1,0 +1,26 @@
+[
+	{
+		"product_id": "01",
+		"title":"Sweet Peach",
+		"image":"img/bottle.jpg",
+		"price": "7.00",
+		"qty": 1,
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit eget dui ut sodales. Donec non placerat dui. Curabitur et luctus tellus."
+	},
+	{
+		"product_id": "02",
+		"title":"Jalapeno Pear",
+		"image":"img/bottle.jpg",
+		"price": "7.00",
+		"qty": 1,
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit eget dui ut sodales. Donec non placerat dui. Curabitur et luctus tellus."
+	},
+	{
+		"product_id": "03",
+		"title":"Hot Chili Cherry",
+		"image":"img/bottle.jpg",
+		"price": "7.00",
+		"qty": 1,
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit eget dui ut sodales. Donec non placerat dui. Curabitur et luctus tellus."
+	}
+]

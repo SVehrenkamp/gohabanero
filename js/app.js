@@ -1,25 +1,19 @@
-angular.module('App', ['ui.router', 'CheckoutCTRL'])
+angular.module('App', ['ui.router', 'ShopCTRL', 'CheckoutCTRL', 'ngAnimate', 'Cart'])
 .config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
 		.state('home', {
 			url: '/',
 			views: {
-				'Try': {
-					template: ''
-				},
-				'Buy': {
-					template: ''
-				},
-				'Follow': {
-					template: ''
-				},
+				'Main': {
+					templateUrl: 'js/partials/home.partial.html'
+				}
 			}
 		})
 		.state('try', {
 			url: '/try',
 			views: {
-				'Try': {
+				'Main': {
 					templateUrl: 'js/partials/try.partial.html'
 				}
 			}
@@ -27,8 +21,8 @@ angular.module('App', ['ui.router', 'CheckoutCTRL'])
 		.state('buy', {
 			url: '/buy',
 			views: {
-				'Buy': {
-					controller: 'CheckoutCTRL',
+				'Main': {
+					controller: 'ShopCTRL',
 					templateUrl: 'js/partials/buy.partial.html'
 				}
 			}
@@ -36,7 +30,7 @@ angular.module('App', ['ui.router', 'CheckoutCTRL'])
 		.state('follow', {
 			url: '/follow',
 			views: {
-				'Follow': {
+				'Main': {
 					templateUrl: 'js/partials/follow.partial.html'
 				}
 			}
