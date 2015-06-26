@@ -59,14 +59,15 @@ angular.module('Cart', [])
 				sum = 0;
 				cart_total = 0;
 				for(var i=0; i < cart_items.length; i++){
-					sum += (cart_items[i].price * cart_items[i].qty);
-					cart_total += cart_items[i].qty;
+					sum += (parseInt(cart_items[i].price) * parseInt(cart_items[i].qty));
+					cart_total += parseInt(cart_items[i].qty);
 				}
 				if(isNaN(sum)) sum = 0;
 				var shipping = this.calc_shipping();
 
 				return {
-					sum: sum + shipping,
+					sum: sum,
+					sum_shipping: sum + shipping,
 					total_items: cart_total
 				};
 			},

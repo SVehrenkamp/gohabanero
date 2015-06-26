@@ -1,0 +1,112 @@
+<div id="checkout_wrapper">
+	<h2>My Order</h2>
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Qty</th>
+				<th>Price</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in items_in_cart" class="center-all">
+				<td><img class="thumbnail" src="{{item.image}}" alt="{{item.name}} thumbnail"/></td>
+				<td>{{item.name}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.qty}}</td>
+				<td>${{item.price}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="cart_totals">
+		<p><strong>Shipping: ${{shipping_total}}.00</strong></p>
+		<p><strong>Total: ${{total.sum_shipping}}.00</strong></p>
+		<a class="btn btn-warning" href="#/cart">Back to Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+	</div>
+
+		<button class="checkout" ng-click="$event.preventDefault();"><h3>1. Contact Information</h3></button>
+			<div class="checkout_inner step1">
+				<div class="form-row">
+				<label>
+				  <input placeholder="First Name" type="text" size="20" name="first_name" ng-model="user.first_name" ng-change="validate_fields();" required/>
+				</label>
+				</div>
+				<div class="form-row">
+				<label>
+				  <input placeholder="Last Name" type="text" size="20" name="last_name" ng-model="user.last_name" ng-change="validate_fields();" required/>
+				</label>
+				</div>
+				<div class="form-row">
+				<label>
+				  <input placeholder="Phone Number" type="phone" size="20" name="phone" ng-model="user.phone" ng-change="validate_fields();" required/>
+				</label>
+				</div>
+				<div class="form-row">
+				<label>
+				  <input placeholder="E-Mail Address" type="text" size="20" name="email" ng-model="user.email" ng-change="validate_fields();" required/>
+				</label>
+				</div>
+			</div>
+
+		<button disabled class="checkout" ng-class="validation.step_1 ? '' : 'disabled' " ng-click="$event.preventDefault();"><h3>2. Address</h3></button>
+		<div class="checkout_inner" ng-class="validation.step_1 ? '' : 'disabled' ">
+			<div class="form-row">
+			<label>
+			  <input placeholder="Street Address" type="text" size="20" name="street_address" ng-model="user.street_address" ng-change="validate_fields();" required/>
+			</label>
+			</div>
+			<div class="form-row">
+			<label>
+			  <input placeholder="Apt.Number" type="text" size="20" name="apt_number" ng-model="user.apt_number"/>
+			</label>
+			</div>
+			<div class="form-row">
+			<label>
+			  <input placeholder="City" type="text" size="20" name="city" ng-model="user.city" ng-change="validate_fields();" required/>
+			</label>
+			</div>
+			<div class="form-row">
+			<label>
+			  <input placeholder="State" type="text" size="20" name="state" ng-model="user.state" ng-change="validate_fields();" required/>
+			</label>
+			</div>
+			<div class="form-row">
+			<label>
+			  <input placeholder="Zip Code" type="text" size="20" name="zip" ng-model="user.zip" ng-change="validate_fields();" required/>
+			</label>
+			</div>
+		</div>
+
+
+	<button disabled class="checkout" ng-class="validation.step_2 ? '' : 'disabled' " ng-click="$event.preventDefault();"><h3>3. Payment Information</h3></button>
+	<form action="" id="payment-form">
+		<div class="checkout_inner" ng-class="validation.step_2 ? '' : 'disabled' " >
+			<span class="payment-errors"></span>
+
+			<div class="form-row">
+			<label>
+			  <input placeholder="Card Number" type="text" size="20" data-stripe="number" ng-model="cc.number" ng-change="validate_fields()" required/>
+			</label>
+			</div>
+
+			<div class="form-row">
+			<label>
+			  <input placeholder="CVC" type="text" size="4" data-stripe="cvc" ng-model="cc.cvc" ng-change="validate_fields()" required/>
+			</label>
+			</div>
+
+			<div class="form-row">
+			<label>
+			  <input placeholder="Expiration (MM/YYYY)" type="text" size="2" data-stripe="exp-month" ng-model="cc.month" ng-change="validate_fields()" required/>
+			</label>
+			<span> / </span>
+			<input type="text" size="4" data-stripe="exp-year" ng-model="cc.year" ng-change="validate_fields()" required/>
+			</div>
+
+			<button disabled class="btn btn-primary" ng-click="tokenize(); $event.preventDefault();" type="submit">Submit Payment</button>
+		</div>
+	</form>
+</div>

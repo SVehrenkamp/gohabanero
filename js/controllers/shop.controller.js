@@ -1,5 +1,5 @@
 angular.module('ShopCTRL', [])
-.controller('ShopCTRL', function($scope, $http, $cart){
+.controller('ShopCTRL', function($rootScope, $scope, $http, $cart){
 	$scope.sauces = [];
 
 	//Get All Sauces
@@ -10,8 +10,9 @@ angular.module('ShopCTRL', [])
 	$scope.add_to_cart = function(index){
 		var item = $scope.sauces[index];
 		$cart.add_item(item);
+		console.log(parseInt($cart.get_items()[0].price) * 1);
 
-		console.log($cart.get_items());
+		$rootScope.$emit('cart_updated');
 	};
 	
 

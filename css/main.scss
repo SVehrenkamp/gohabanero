@@ -5,11 +5,98 @@
 $orange:#FF9900;
 $gray:#555555;
 
+html, body{
+	height:100%;
+}
 #gohabanero{
 	display: block;
 	width: 98%;
-	height: 100%;
+	min-height: 100%;
 	margin:0 auto;
+	padding-bottom:100px;
+	overflow:auto;
+
+	div.mini-cart{
+		a{
+			display:block;
+			width:60px;
+			height:20px;
+			float:right;
+			margin:20px;
+			color:$orange;
+
+			span{
+				width:20px;
+				height:100%;
+
+			}
+		}
+	}
+	
+	div#cart_wrapper, div#checkout_wrapper{
+		table{
+			td{
+				img{
+					width:100px;
+					height:100px;
+					display:block;
+					overflow: hidden;
+				}
+			}
+		}
+
+		div#cart_totals{
+			float:right;
+			p{
+				text-align:right;
+			}
+		}
+	}
+	div#checkout_wrapper{
+		button.checkout{
+			width:100%;
+			border:0 none;
+			border-bottom:1px solid #cccccc;
+			background:none;
+			display:block;
+			float:left;
+			text-align:left;
+
+			&.disabled{
+				opacity:0.2;
+			}
+		}
+		div.checkout_inner{
+			display:block;
+			width:100%;
+			float:left;
+			padding:10px;
+
+			&.disabled{
+				display:none;
+			}
+		}
+		div.step1{
+			display:block;
+		}
+		label{
+			width:100%;
+			margin:10px 0px;
+
+			input{
+				width:100%;
+				padding:10px 20px;
+				float:left;
+			}
+		}
+	}
+	tr.center-all{
+
+		td{
+			vertical-align: middle;
+		}
+
+	}
 	.logo{
 		position:absolute;
 		top:5px;
@@ -100,13 +187,9 @@ $gray:#555555;
 				position:relative;
 
 				div.view{
-					position: absolute;
-					top: 0;
-					left: 0;
 					background: #ffffff;
 					z-index: 999;
 					width: 100%;
-					bottom: 0;
 				}
 			}
 			&.inner{
@@ -223,54 +306,56 @@ div{
 	padding:20px 0px;
 	width:100%;
 	background:#999999;
+	color:#ffffff;
 	overflow:auto;
 	display:block;
 	text-align:center;
 	font-family:'Arial';
 	font-weight:100;
-	position:fixed;
 	bottom:0;
+	margin:-100px auto 0px;
+	height:100px;
 }
 
 /*Animations*/
 @keyframes fade-in{
-	0%{opacity:0; display:none; margin-top:200px;}
-	100%{opacity:1; display:block; top:0}
+	0%{opacity:0;}
+	100%{opacity:1;}
 }
 @-webkit-keyframes fade-in{
-	0%{opacity:0; display:none; margin-top:200px;}
-	100%{opacity:1; display:block; margin-top:0;}
+	0%{opacity:0;}
+	100%{opacity:1;}
 }
 @keyframes fade-out{
-	0%{opacity:1; display:block; margin-top:0;}
-	100%{opacity:0; display:none; margin-top:200px;}
+	0%{opacity:1;}
+	100%{opacity:0;}
 }
 @-webkit-keyframes fade-out{
-	0%{opacity:1; display:block; margin-top:0px}
-	100%{opacity:0; display:none; margin-top:200px;}
+	0%{opacity:1;}
+	100%{opacity:0;}
 }
 .main-view{
 	transition:all 2s ease;
 	-moz-transition:all 2s ease;
 	-webkit-transition:all 2s ease;
-	position:absolute;
 	width:98%;
+	padding-top:120px;
 
 	&.ng-enter{
-		.home-view{
+		.home-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-in 1s;
 			animation:fade-in 1s;
 		}
 
 	}
 	&.ng-enter{
-		.buy-view{
+		.buy-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-in 1s;
 			animation:fade-in 1s;
 		}
 	}
 	&.ng-leave{
-		.home-view{
+		.home-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-out 0.5s;
 			animation: fade-out 0.5s;
 			-webkit-animation-fill-mode:forwards;
@@ -279,7 +364,7 @@ div{
 		}
 	}
 	&.ng-leave{
-		.buy-view{
+		.buy-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-out 0.5s;
 			animation: fade-out 0.5s;
 			-webkit-animation-fill-mode:forwards;
