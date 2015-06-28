@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: "server.js"
+          script: "server/server.js"
         }
       }
     },
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
       files: {
         base: "http://localhost:3000/",
         dir: (_ref1 = grunt.option('dir')) != null ? _ref1 : "",
-        css: "css/main.css"
+        css: "client/css/main.css"
       }
     },
     files: {
@@ -62,9 +62,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: 'css',
+            cwd: 'client/css',
             src: ['main.scss'],
-            dest: 'css',
+            dest: 'client/css',
             ext: '.css'
           }
         ]
@@ -75,13 +75,13 @@ module.exports = function(grunt) {
         livereload: true
       },
       express: {
-        files: ['server.js'],
+        files: ['server/server.js'],
         options: {
           spawn: true
         }
       },
       sass: {
-        files: ["css/main.scss"],
+        files: ["*/css/main.scss"],
         tasks: ["sass"],
         options: {
           spawn: true

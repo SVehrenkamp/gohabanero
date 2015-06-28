@@ -1,9 +1,25 @@
 {
-  "name": "tgt-cli-boilerplate",
+  "name": "gohabanero",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "pretest": "jshint ."
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "ejs": "^2.3.1",
+    "errorhandler": "^1.1.1",
+    "loopback": "^2.14.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-connector-mongodb": "^1.8.0",
+    "loopback-datasource-juggler": "^2.19.0",
+    "mandrill-api": "^1.0.45",
+    "serve-favicon": "^2.0.1",
+    "stripe": "^3.3.4"
+  },
+  "optionalDependencies": {
+    "loopback-explorer": "^1.1.0"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
@@ -19,16 +35,11 @@
     "grunt-http": "^1.4.0",
     "grunt-open": "~0.2.2",
     "grunt-sftp-deploy": "0.0.11",
-    "matchdep": "^0.3.0",
-    "express": "^4.12.4"
+    "matchdep": "^0.3.0"
   },
   "repository": {
     "type": "",
     "url": ""
   },
-  "description": "tgt-cli-boilerplate",
-  "dependencies": {
-    "body-parser": "^1.12.4",
-    "stripe": "^3.3.4"
-  }
+  "description": "gohabanero"
 }

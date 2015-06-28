@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Your Message Subject or Title</title>
+	<style type="text/css">
+		/* Based on The MailChimp Reset INLINE: Yes. */  
+		/* Client-specific Styles */
+		#outlook a {padding:0;} /* Force Outlook to provide a "view in browser" menu link. */
+		body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;} 
+		/* Prevent Webkit and Windows Mobile platforms from changing default font sizes.*/ 
+		.ExternalClass {width:100%;} /* Force Hotmail to display emails at full width */  
+		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+		/* Forces Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */ 
+		#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+		/* End reset */
+
+		/* Some sensible defaults for images
+		Bring inline: Yes. */
+		img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;} 
+		a img {border:none;} 
+		.image_fix {display:block;}
+
+		/* Yahoo paragraph fix
+		Bring inline: Yes. */
+		p {margin: 1em 0;}
+
+		/* Hotmail header color reset
+		Bring inline: Yes. */
+		h1, h2, h3, h4, h5, h6 {color: black !important;}
+
+		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+
+		h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+		color: red !important; /* Preferably not the same color as the normal header link color.  There is limited support for psuedo classes in email clients, this was added just for good measure. */
+		}
+
+		h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+		color: purple !important; /* Preferably not the same color as the normal header link color. There is limited support for psuedo classes in email clients, this was added just for good measure. */
+		}
+
+		/* Outlook 07, 10 Padding issue fix
+		Bring inline: No.*/
+		table td {border-collapse: collapse;}
+
+		/* Remove spacing around Outlook 07, 10 tables
+		Bring inline: Yes */
+		table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+
+		/* Styling your links has become much simpler with the new Yahoo.  In fact, it falls in line with the main credo of styling in email and make sure to bring your styles inline.  Your link colors will be uniform across clients when brought inline.
+		Bring inline: Yes. */
+		a {color: orange;}
+
+
+		/***************************************************
+		****************************************************
+		MOBILE TARGETING
+		****************************************************
+		***************************************************/
+		@media only screen and (max-device-width: 480px) {
+			/* Part one of controlling phone number linking for mobile. */
+			a[href^="tel"], a[href^="sms"] {
+						text-decoration: none;
+						color: blue; /* or whatever your want */
+						pointer-events: none;
+						cursor: default;
+					}
+
+			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+						text-decoration: default;
+						color: orange !important;
+						pointer-events: auto;
+						cursor: default;
+					}
+
+		}
+
+	</style>
+
+	<!-- Targeting Windows Mobile -->
+	<!--[if IEMobile 7]>
+	<style type="text/css">
+	
+	</style>
+	<![endif]-->   
+
+	<!-- ***********************************************
+	****************************************************
+	END MOBILE TARGETING
+	****************************************************
+	************************************************ -->
+
+	<!--[if gte mso 9]>
+		<style>
+		/* Target Outlook 2007 and 2010 */
+		</style>
+	<![endif]-->
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" id="backgroundTable">
+	<tr>
+		<td valign="top"> 
+		<table cellpadding="0" cellspacing="0" border="0" width="768" align="center">
+			<tr>
+				<td width="100%" valign="top">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+						<tr><td>&nbsp;</td></tr>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td width="140" style="padding:0px 0px 0px 20px; text-align:center;font-family:Helvetica, Arial, Sans-Serif; font-size:14px;">GO Habanero</td>
+										<td width="400">&nbsp;</td>
+										<td width="228" style="padding:0px 20px 0px 0px; text-align:center;font-family:Helvetica, Arial, Sans-Serif; font-size:14px;"><strong>Order</strong> #<%= order_number%></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr><td>&nbsp;</td></tr>
+						<tr>
+							<td width="100%" height="140" bgcolor="#454545">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td width="100"></td>
+										<td width="568" style="text-align:center;font-family:Helvetica, Arial, Sans-Serif; font-size:36px; color:#FFFFFF;">Thank You For Your Order!</td>
+										<td width="100"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td width="100%">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;">
+											<p style="font-size:36px; color:#454545;"><%= first_name%>,</p>
+											<p style="font-size:14px; color:#454545;">This is a confirmation email to let you know that we have received your order and it is currently being processed.  You will receive another notification when your order has shipped.</p>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545;">
+											<p>We thank you very much for your business and we hope</p>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+									</tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545;">
+											<p>Order Summary</p>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+									</tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545;">
+											<table cellpadding="0" cellspacing="0" border="0" width="100%">
+												<tr>
+													<thead>
+														<td></td>
+														<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; font-weight:bold;">Product Name</td>
+														<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; font-weight:bold;">Description</td>
+														<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; font-weight:bold;">Qty</td>
+														<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; font-weight:bold;">Price</td>
+													</thead>
+												</tr>
+												<% for(var i=0; i<ordered_items.length; i++){ %>
+												<tr>
+													<td><img src="http://localhost:3000/img<%= ordered_items[i].thumbnail%>" /></td>
+													<td><%= ordered_items[i].name%></td>
+													<td><%= ordered_items[i].description%></td>
+													<td><%= ordered_items[i].qty%></td>
+													<td><%= ordered_items[i].price%></td>
+												</tr>
+												<%}%>
+											</table>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+									</tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; text-align:right;">
+											<p><strong>Shipping Total:</strong> $<%= shipping_total%></p>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+									</tr>
+										<td style="padding:0px 0px 0px 20px;">&nbsp;</td>
+										<td style="font-family:Helvetica, Arial, Sans-Serif;font-size:14px; color:#454545; text-align:right;">
+											<p><strong>Total:</strong> $<%= order_total%></p>
+										</td>
+										<td style="padding:0px 20px 0px 0px;">&nbsp;</td>
+									</tr>
+									
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td width="100%" height="60" bgcolor="#454545">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td width="100"></td>
+										<td width="568" style="text-align:center;font-family:Helvetica, Arial, Sans-Serif; font-size:12px; color:#FFFFFF;">&copy; 2015 GO Habanero</td>
+										<td width="100"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+		</td>
+	</tr>
+</table>  
+<!-- End of wrapper table -->
+</body>
+</html>
