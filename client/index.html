@@ -16,7 +16,7 @@
       <a href="#/" class="logo"><img src="img/gh-logo-vert.svg" alt=""/></a>
       <nav class="navbar navbar-default" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="mini-cart" ng-controller="MiniCartCTRL">
+        <div class="mini-cart" ng-controller="MiniCartCTRL" ng-cloak>
           <a href="#/cart">
             <span class="glyphicon glyphicon-shopping-cart"></span>
             <span class="cart-count">{{cart_count.total_items}}</span>
@@ -27,7 +27,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
       </nav><!--End Nav-->
       
-      <div ui-view="Main" class="main-view"></div>
+      <div ui-view="Main" class="main-view" ng-cloak></div>
 
     </div><!--End Wrapper-->
     </main>
@@ -57,5 +57,7 @@
     <script type="text/javascript" src="js/controllers/cart.controller.js"></script>
     <script type="text/javascript" src="js/controllers/confirm.controller.js"></script>
     <script type="text/javascript" src="js/controllers/dashboard.controller.js"></script>
+    <script type="text/javascript" src="js/controllers/login.controller.js"></script>
+    <script type="text/javascript" src="js/controllers/order.controller.js"></script>
   </body>
 </html>

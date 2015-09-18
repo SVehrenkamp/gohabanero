@@ -58,8 +58,7 @@ var send_confirmation = function(order){	//Add Message Template Here
 app.use('/complete-order', loopback.bodyParser(), function(req, res){
 	var order = req.body;
 	
-	Cart.save_order(order, res);
-	send_confirmation(order);
+	Cart.save_order(order, send_confirmation);
 
 });
 
@@ -67,8 +66,21 @@ app.use('/complete-order', loopback.bodyParser(), function(req, res){
 app.use('/get_all_orders', loopback.bodyParser(), function(req, res){
 	app.models.orders.find(function(err, orders){
 		res.send(orders);
-	})
+	});
 });
+app.use('/get_order', loopback.bodyParser(), function(req, res){
+	app.models.orders.find({where: {id: req.body.id}}, function(err, data){
+		if(err){console.log('ERR', err)};
+		res.send(data);
+	});
+});
+app.use('/ship_order', loopback.bodyParser(), function(req, res){
+	var order = req.body.order;
+	Cart.ship_order(order, function(obj){
+		res.json(obj);
+	});
+});
+
 
 //Charge Customer Card Immediately 
 app.use('/complete_transaction', loopback.bodyParser(), function(req, res){
@@ -76,7 +88,6 @@ app.use('/complete_transaction', loopback.bodyParser(), function(req, res){
 //Tokenized info
 var stripeToken = req.body.stripeToken;
 var chargeAmmount = req.body.chargeAmmount * 100;
-var order_number = '';
 
 	var charge = stripe.charges.create({
 	  amount: chargeAmmount, // amount in cents, again
@@ -88,11 +99,7 @@ var order_number = '';
 	    // The card has been declined
 	    res.json({"status":"401 Card Declined"});
 	  } else {
-	  	order_number = 'xxxx-4xxx-yxxx-xxxx'.replace(/[xy]/g, function(c) {
-		    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-		    return v.toString(16);
-		});
-	  	res.json({"status":"200 OK", "chargeAmmount":chargeAmmount, "order_number":order_number});
+	  	res.json({"status":"200 OK", "chargeAmmount":chargeAmmount});
 	  }
 	});
 });

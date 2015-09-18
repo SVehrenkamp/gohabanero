@@ -1,4 +1,4 @@
-angular.module('App', ['ui.router', 'ShopCTRL', 'CheckoutCTRL', 'MiniCartCTRL', 'CartCTRL', 'ConfirmationCTRL', 'DashboardCTRL', 'ngAnimate', 'Cart'])
+angular.module('App', ['ui.router', 'LoginCTRL', 'ShopCTRL', 'CheckoutCTRL', 'MiniCartCTRL', 'CartCTRL', 'ConfirmationCTRL', 'DashboardCTRL', 'OrderCTRL', 'ngAnimate', 'Cart'])
 .config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
@@ -68,6 +68,24 @@ angular.module('App', ['ui.router', 'ShopCTRL', 'CheckoutCTRL', 'MiniCartCTRL', 
 				'Main': {
 					controller: 'DashboardCTRL',
 					templateUrl: 'js/partials/dashboard.partial.html'
+				}
+			}
+		})
+		.state('login', {
+			url: '/login',
+			views: {
+				'Main': {
+					controller: 'LoginCTRL',
+					templateUrl: 'js/partials/login.partial.html'
+				}
+			}
+		})
+		.state('order', {
+			url: '/admin/:id',
+			views: {
+				'Main': {
+					controller: 'OrderCTRL',
+					templateUrl: 'js/partials/admin.details.html'
 				}
 			}
 		});

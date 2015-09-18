@@ -1,0 +1,54 @@
+<div id="order_wrapper">
+	<h2>Order #{{order.id}}</h2>
+	<b>Date: {{order.date}}</b>
+
+	<div id="contact_information">
+		<b>{{order.last_name}}, {{order.first_name}}</b>
+		<p>{{order.email}}</p>
+		<p>{{order.phone}}</p>
+		<p>{{order.street_address}}</p>
+		<p>{{order.city}}, {{order.state}} {{order.zip}}</p>
+	</div>
+
+	<div id="order_information">
+		<table class="table table-striped">
+			<tr>
+				<th>Thumbnail</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+			<tr ng-repeat="item in order.ordered_items">
+				<td><img src="{{item.image}}" /></td>
+				<td>{{item.title}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.qty}}</td>
+				<td>{{item.price}}</td>
+			</tr>
+		</table>
+		<div id="order_totals">
+			<b>Shipping: {{order.shipping}}</b>
+			<b>Total: {{order.order_total}}</b>
+		</div>
+	</div>
+	<div id="shipping_wrapper">
+		<div ng-if="order.status">
+			<h3>Order shipped</h3>
+			<b>Date Shipped: {{order.status.date}}</b>
+			<b>Tracking Number: {{order.status.tracking}}</b>
+			<b>Carrier: {{order.status.carrier}}</b>
+		</div>
+		<div ng-if="!order.status">
+			<select ng-model="carrier">
+				<option value="UPS">UPS</option>
+				<option value="USPS">USPS</option>
+				<option value="FEDEX">FEDEX</option>
+				<option value="PICKUP">Pick Up/Drop Off</option>
+			</select>
+			<br>
+			<input type="text" name="tracking" ng-model="tracking" placeholder="tracking number"/>
+			<button class="btn btn-danger" ng-click="ship_order();">Ship Order</button>
+		</div>
+	</div>
+</div>

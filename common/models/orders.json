@@ -6,10 +6,6 @@
     "validateUpsert": true
   },
   "properties": {
-    "order_number": {
-      "type": "string",
-      "required": true
-    },
     "first_name": {
       "type": "string",
       "required": true

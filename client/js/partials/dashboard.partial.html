@@ -1,4 +1,9 @@
 <div id="dashboard_wrapper">
+	<div class="btn-group pull-right" role="group">
+	  <button type="button" class="btn btn-default active" ng-click="filter_list('')">All</button>
+	  <button type="button" class="btn btn-default" ng-click="filter_list('status');">Shipped</button>
+	  <button type="button" class="btn btn-default" ng-click="filter_list('!status')">Open</button>
+	</div>
 	<table class="table table-striped">
 		<tr>
 			<th>Date</th>
@@ -7,12 +12,26 @@
 			<th>Ammount</th>
 			<th>Status</th>
 		</tr>
-		<tr ng-repeat="order in orders">
-			<td>{{order.date}}</td>
-			<td>{{order.order_number}}</td>
-			<td>{{order.last_name}}, {{order.first_name}}</td>
-			<td>${{order.order_total}}</td>
-			<td>Unfullfilled</td>
+		<tr ng-repeat="order in orders | orderBy: '-date' ">
+			<td>
+				<a href="#/admin/{{order.id}}">{{order.date}}</a>
+			</td>
+			<td>
+				<a href="#/admin/{{order.id}}">{{order.id}}</a>
+			</td>
+			<td>
+				<a href="#/admin/{{order.id}}">{{order.last_name}}, {{order.first_name}}</a>
+			</td>
+			<td>
+				<a href="#/admin/{{order.id}}">${{order.order_total}}</a>
+			</td>
+			<td ng-if="order.status">
+				<a href="#/admin/{{order.id}}"><span style="color:green;" class="glyphicon glyphicon-ok"></span></a>
+			</td>
+			<td ng-if="!order.status">
+				<a href="#/admin/{{order.id}}"><span style="color:red;" class="glyphicon glyphicon-minus"></span></a>
+			</td>
+
 		</tr>
 	</table>
 </div>

@@ -111,9 +111,7 @@ angular.module('Cart', [])
 				if(resp.status === 200 ){
 
 					self.set_user(usr);
-					var order_number = resp.data.order_number;
-
-					user.order_number = order_number;
+					
 					user.ordered_items = cart_items;
 					user.num_ordered_items = cart_total;
 					user.order_total = sum;
