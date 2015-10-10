@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <main id="gohabanero" ng-app="App">
+    <main id="gohabanero" ng-app="App" ng-cloak>
     <!--Main Container Grid 12-->
     <div class="wrapper">
-      <!--Navbar-->
-      <a href="#/" class="logo"><img src="img/gh-logo-vert.svg" alt=""/></a>
-      <nav class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
+      <div id="top-bar">
+        <!--Navbar-->
+        <a href="#/" class="logo"><img src="img/gh-logo-vert.svg" alt=""/></a>
+        <nav class="navbar navbar-default" role="navigation"></nav>
         <div class="mini-cart" ng-controller="MiniCartCTRL" ng-cloak>
           <a href="#/cart">
             <span class="glyphicon glyphicon-shopping-cart"></span>
@@ -23,6 +23,9 @@
             <span class="cart-count"><b>${{cart_count.sum}}</b></span>
           </a>
         </div>
+      </div>
+        <!-- Brand and toggle get grouped for better mobile display -->
+
       
         <!-- Collect the nav links, forms, and other content for toggling -->
       </nav><!--End Nav-->

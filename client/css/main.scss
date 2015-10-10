@@ -22,7 +22,6 @@ h2{
 	border-radius:0;
     font-weight: bold;
     text-shadow: 0px 1px 1px #777;
-    border:0 none;
     border-bottom:2px solid;
 
 }
@@ -32,22 +31,29 @@ h2{
 	min-height: 100%;
 	margin:0 auto;
 	padding-bottom:100px;
-	overflow:auto;
-
 	div.mini-cart{
+		overflow:hidden;
 		a{
 			display:block;
-			width:60px;
 			height:20px;
 			float:right;
 			margin:20px;
 			color:$orange;
+		    right: 0;
+		    top: 40px;
 
 			span{
 				width:20px;
 				height:100%;
+				&.glyphicon {
+					font-size:2em;
+					margin-right:0.5em;
+				}
 
 			}
+		}
+		@media (max-width: 550px) {
+			margin-top:-35px;
 		}
 	}
 	
@@ -125,70 +131,37 @@ h2{
 			width:120px;
 		}
 	}
-	.menu-right{
-		position: absolute;
-  		width: 0px;
-  		top: 0;
-  		right: 0;
-  		bottom: 0;
-  		background: #EFEFEF;
-  		z-index: 1000;
-  		text-align:center;
-  		padding:20% 0 0 0;
-  		display:block;
-  		overflow:hidden;
-
-  		img{
-  			margin:20px 0px;
-  		}
-
-  		a{
-  			text-decoration:none;
-  			font-size:2.2em;
-  			display:block;
-  			color:#555555;
-  			width:100%;
-  			font-weight:100;
-  			margin:10px;
-
-			@media (max-width: 700px) {
-				font-size:1.8em;
-			}
-
-			@media (max-width: 600px) {
-				font-size:1.4em;
-			}
-			@media (max-width: 550px) {
-				font-size:1.2em;
-			}
-
-  		}
-	}
-	nav{
-		margin:0;
+	#top-bar {
+		position:fixed;
+		width:100%;
 		background-color:#ffffff;
-		border:0;
-		a{
-			&.navbar-brand{
-				font-family:'Flaticon';
-				font-size:3em;
-				color:#555;
+		z-index:9999;
+		nav{
+			margin:0;
+			background-color:transparent;
+			border:0;
+			a{
+				&.navbar-brand{
+					font-family:'Flaticon';
+					font-size:3em;
+					color:#555;
 
+				}
 			}
-		}
-		div.navbar-header, div.navbar-collapse{
-			padding:10px 0px;
+			div.navbar-header, div.navbar-collapse{
+				padding:10px 0px;
 
-			img{
-				float:left;
-				margin: -3px 0px 0px 10px;
+				img{
+					float:left;
+					margin: -3px 0px 0px 10px;
+				}
 			}
-		}
-		button.navbar-toggle{
-			right:-5px;
-			margin-right:0;
-			display:block;
-			position:absolute;
+			button.navbar-toggle{
+				right:-5px;
+				margin-right:0;
+				display:block;
+				position:absolute;
+			}
 		}
 	}
 	span.orange{
@@ -270,26 +243,77 @@ h2{
 					font-size:2.25em;
 				}
 			}
+			img {
+				@media (max-width: 550px) {
+					margin-left:-50px;
+				}
+			}
 			div.purchase-container{
 				width:100%;
+
 				p.price{
 					font-size:1.25em;
 					font-weight:bold;
+					position:relative;
+
+					i.glyphicon.glyphicon-ok {
+					    position: absolute;
+					    top: 5px;
+					    left: 90px;
+					    padding: 1px;
+					    background:#fff;
+					    &.fall-in {
+					    	animation:fall-in 0.25s;
+					    	-webkit-animation:fall-in 0.25s;
+					    }
+					}
+
+					@media (max-width: 550px) {
+						float:right;
+						
+						i.glyphicon.glyphicon-ok {
+						    position: absolute;
+						    top: 5px;
+						    left: 30px;
+						    padding: 1px;
+						    background:#fff;
+						    &.fall-in {
+						    	animation:fall-in 0.25s;
+						    	-webkit-animation:fall-in 0.25s;
+						    }
+						}
+					}
 
 				}
 				input{
 					width:40px;
 					text-align:center;
+					margin-right:1em;
+				}
+				input::-webkit-outer-spin-button,
+				input::-webkit-inner-spin-button {
+				    /* display: none; <- Crashes Chrome on hover */
+				    -webkit-appearance: none;
+				    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 				}
 				button{
 					display:block;
 					clear:both;
 					margin:0 auto;
+
+					@media (max-width: 550px) {
+						width:100%;
+					    padding: 15px 10px;
+					    font-size: 1.5em;
+					}
+
 				}
 			}
 		}
 	}
 	div#follow{
+		text-align:center;
+		width:100%;
 		padding:10px;
 		img{
 			width:48%;
@@ -297,10 +321,16 @@ h2{
 		}	
 	}
 	div#try{
+		text-align:center;
+		width:100%;
+		padding-top:40px;
 		div.glyphicon{
 			font-size:6em;
 			color:$gray;
-		}	
+		}
+		h2 {
+			margin-bottom:40px;
+		}
 	}
 
 	div.spacer{
@@ -351,6 +381,34 @@ div{
 	0%{opacity:1;}
 	100%{opacity:0;}
 }
+// @keyframes fall-in {
+//     0% {
+//         opacity:0;
+//         -webkit-transform:scale(50);
+//     }
+//     50%{
+//         opacity:0;
+//     }
+//     100%{
+//         opacity:1;
+//         -webkit-transform:scale(1);
+//     }
+// }
+@-webkit-keyframes fall-in {
+    0% {
+        opacity:0;
+        -webkit-transform:scale(50);
+        background:none;
+    }
+    50%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+        background:none;
+        -webkit-transform:scale(1);
+    }
+}
 #view-wrapper{
 	max-width:720px;
 	display:block;
@@ -358,35 +416,56 @@ div{
 	position:relative;
 	min-height:800px;
 	padding-top:120px;
+
+	@media (max-width: 550px) {
+	}
 }
 .main-view{
-	transition:all 2s ease;
-	-moz-transition:all 2s ease;
-	-webkit-transition:all 2s ease;
+	transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	-webkit-transition:all 0.5s ease;
 	max-width:720px;
 
 	&.ng-enter{
-		.home-view, #cart_wrapper, #checkout_wrapper{
-			-webkit-animation:fade-in 1s;
-			animation:fade-in 1s;
+		@media (max-width: 550px) {
+			min-height:1800px;
+		}
+		.home-view,
+		 #cart_wrapper, 
+		 #checkout_wrapper,
+		 #try,
+		 #follow{
+			-webkit-animation:fade-in 0.5s;
+			animation:fade-in 0.5s;
 			position:absolute;
-	max-width:720px;
+			max-width:720px;
 
 		}
 
 	}
 	&.ng-enter{
-		.buy-view, #cart_wrapper, #checkout_wrapper{
-			-webkit-animation:fade-in 1s;
-			animation:fade-in 1s;
+		@media (max-width: 550px) {
+			min-height:1800px;
+		}
+		.buy-view, 
+		#cart_wrapper, 
+		#checkout_wrapper,
+		 #try,
+		 #follow {
+			-webkit-animation:fade-in 0.5s;
+			animation:fade-in 0.5s;
 			position:absolute;
 	max-width:720px;
 		}
 	}
 	&.ng-leave{
-		.home-view, #cart_wrapper, #checkout_wrapper{
-			-webkit-animation:fade-out 0.5s;
-			animation: fade-out 0.5s;
+		.home-view, 
+		#cart_wrapper, 
+		#checkout_wrapper,
+		 #try,
+		 #follow{
+			-webkit-animation:fade-out 0.25s;
+			animation: fade-out 0.25s;
 			-webkit-animation-fill-mode:forwards;
 			animation-fill-mode:forwards;
 			display:none;
@@ -395,9 +474,13 @@ div{
 		}
 	}
 	&.ng-leave{
-		.buy-view, #cart_wrapper, #checkout_wrapper{
-			-webkit-animation:fade-out 0.5s;
-			animation: fade-out 0.5s;
+		.buy-view, 
+		#cart_wrapper, 
+		#checkout_wrapper,
+		 #try,
+		 #follow{
+			-webkit-animation:fade-out 0.25s;
+			animation: fade-out 0.25s;
 			-webkit-animation-fill-mode:forwards;
 			animation-fill-mode:forwards;
 			display:none;

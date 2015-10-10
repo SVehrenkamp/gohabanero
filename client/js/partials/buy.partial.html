@@ -11,8 +11,9 @@
 		        	<p class="title">{{sauce.title}}<p>
 		        	<p class="description">{{sauce.description}}</p>
 		        	<div class="purchase-container">
-		        		<p class="price">${{sauce.price}} 
-		        		<input type="text" name="qty" value="1" ng-model="sauce.qty" ng-change="update_qty($index)" />
+		        		<p class="price">
+		        		<i ng-if="sauces[$index].addedToCart" class="glyphicon glyphicon-ok fall-in"></i>
+		        		<input type="number" min="0" max="99" name="qty" value="1" ng-model="sauce.qty" ng-change="update_qty($index)" />${{sauce.price}} 
 		        		</p>
 		        		<button class="btn btn-warning" ng-click="add_to_cart($index)">Add to Cart</button>
 		        	</div>
