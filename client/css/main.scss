@@ -334,17 +334,29 @@ div{
 	0%{opacity:1;}
 	100%{opacity:0;}
 }
+#view-wrapper{
+	max-width:720px;
+	display:block;
+	overflow-y:auto;
+	overflow-x: hidden;
+	margin:0 auto;
+	position:relative;
+	height:800px;
+	padding-top:120px;
+}
 .main-view{
 	transition:all 2s ease;
 	-moz-transition:all 2s ease;
 	-webkit-transition:all 2s ease;
-	width:98%;
-	padding-top:120px;
+	max-width:720px;
 
 	&.ng-enter{
 		.home-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-in 1s;
 			animation:fade-in 1s;
+			position:absolute;
+	max-width:720px;
+
 		}
 
 	}
@@ -352,6 +364,8 @@ div{
 		.buy-view, #cart_wrapper, #checkout_wrapper{
 			-webkit-animation:fade-in 1s;
 			animation:fade-in 1s;
+			position:absolute;
+	max-width:720px;
 		}
 	}
 	&.ng-leave{
@@ -361,6 +375,8 @@ div{
 			-webkit-animation-fill-mode:forwards;
 			animation-fill-mode:forwards;
 			display:none;
+			position:absolute;
+	max-width:720px;
 		}
 	}
 	&.ng-leave{
@@ -370,6 +386,8 @@ div{
 			-webkit-animation-fill-mode:forwards;
 			animation-fill-mode:forwards;
 			display:none;
+			position:absolute;
+	max-width:720px;
 		}
 	}
 }
