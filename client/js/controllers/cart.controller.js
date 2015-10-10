@@ -1,5 +1,12 @@
 angular.module('CartCTRL', [])
-	.controller('CartCTRL', function($scope, $http, $cart, $location, $rootScope){
+	.controller('CartCTRL', function(
+		$scope, 
+		$http, 
+		$cart, 
+		$location, 
+		$rootScope, 
+		$Session
+		){
 		
 		var cart_total = null;
 		$scope.items_in_cart = $cart.get_items();

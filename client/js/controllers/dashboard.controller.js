@@ -1,5 +1,8 @@
 angular.module('DashboardCTRL', [])
-	.filter('shipped', function($filter){
+	.filter('shipped', function(
+		$filter,
+		$Session
+		){
 		return function(inputArray, criteria){
 			
 			if(!angular.isDefined(criteria) || criteria === ''){

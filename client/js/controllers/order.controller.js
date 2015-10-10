@@ -1,5 +1,10 @@
 angular.module('OrderCTRL', [])
-	.controller('OrderCTRL', function($scope, $http, $stateParams){
+	.controller('OrderCTRL', function(
+		$scope, 
+		$http, 
+		$stateParams,
+		$Session
+		){
 
 		var params = {'id': $stateParams.id};
 

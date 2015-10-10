@@ -1,4 +1,4 @@
-angular.module('App', ['ui.router', 'LoginCTRL', 'ShopCTRL', 'CheckoutCTRL', 'MiniCartCTRL', 'CartCTRL', 'ConfirmationCTRL', 'DashboardCTRL', 'OrderCTRL', 'ngAnimate', 'Cart'])
+angular.module('App', ['ui.router', 'LoginCTRL', 'ShopCTRL', 'CheckoutCTRL', 'MiniCartCTRL', 'CartCTRL', 'ConfirmationCTRL', 'DashboardCTRL', 'OrderCTRL', 'ngAnimate', 'Cart', 'Session'])
 .config(function($stateProvider, $urlRouterProvider){
 	$urlRouterProvider.otherwise('/');
 	$stateProvider

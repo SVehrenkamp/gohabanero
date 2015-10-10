@@ -1,5 +1,11 @@
 angular.module('ConfirmationCTRL', [])
-	.controller('ConfirmationCTRL', function($scope, $location, $http, $cart){
+	.controller('ConfirmationCTRL', function(
+		$scope, 
+		$location, 
+		$http, 
+		$cart,
+		$Session
+		){
 		$scope.thanks = "Thank you for your order!"
 
 		//Set Checkout Variables from Cart Service

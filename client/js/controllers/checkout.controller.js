@@ -1,5 +1,10 @@
 angular.module('CheckoutCTRL', [])
-.controller('CheckoutCTRL', function($scope, $cart, $location){
+.controller('CheckoutCTRL', function(
+	$scope, 
+	$cart, 
+	$location,
+	$Session
+	){
 
 	var $payment_form = $('#payment-form');
 	$scope.user = {};

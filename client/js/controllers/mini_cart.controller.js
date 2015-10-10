@@ -1,5 +1,11 @@
 angular.module('MiniCartCTRL', [])
-.controller('MiniCartCTRL', function($rootScope, $scope, $http, $cart){
+.controller('MiniCartCTRL', function(
+	$rootScope, 
+	$scope, 
+	$http, 
+	$cart, 
+	$Session
+	){
 
 	$scope.cart_count = 0;
 

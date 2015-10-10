@@ -1,5 +1,5 @@
 angular.module('Cart', [])
-	.service('$cart', function($http){
+	.service('$cart', function($http, $Session){
 		//Mock Data
 		// var item = {
 		// 	thumbnail: '/img/product.png',
@@ -39,13 +39,32 @@ angular.module('Cart', [])
 				}
 				return item_present;
 			},
-			add_item: function(item){
+			add_item: function(item, i){
 				if(this.check_items(item) === false){
 					cart_items.push(item);
 				} else{
 					var index = this.check_items(item);
 					cart_items[index] = item;
 				}
+
+				var CartSession = JSON.parse($Session.getItem('cartItems'));
+				console.log(i);
+				if (!CartSession) {
+
+					console.log(true);
+					var arr = [];
+					arr.push(i);
+					arr = JSON.stringify(arr);
+					$Session.setItem('cartItems', arr);
+				} else {
+
+					console.log(false);
+					CartSession.push(i);
+					CartSession = JSON.stringify(CartSession);
+					$Session.setItem('cartItems', CartSession);
+
+				}
+
 				return cart_items;
 			},
 			remove_item: function($index){
@@ -72,11 +91,9 @@ angular.module('Cart', [])
 				};
 			},
 			update_qty: function(i, qty){
-				console.log(i);
 				cart_items[i].qty = parseInt(qty);
 				this.get_cart_total();
-				console.log('Updating Cart!', cart_items[i].qty);
-
+				
 			},
 			calc_shipping: function(){
 				shipping_total = 5;
@@ -91,11 +108,9 @@ angular.module('Cart', [])
 			},
 			set_user:function(userData){
 				user = userData;
-				console.log(user);
 				return false;
 			},
 			get_user: function(){
-				console.log(user);
 				return user;
 			},
 			save_order: function(order){
@@ -106,7 +121,6 @@ angular.module('Cart', [])
 			complete_current_order: function(form_data, usr, response){
 				var self = this;
 				$http.post('/complete_transaction', form_data).then(function(resp){
-				console.log('Success!', resp);
 
 				if(resp.status === 200 ){
 

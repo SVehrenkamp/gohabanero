@@ -1,5 +1,10 @@
 angular.module('LoginCTRL', [])
-	.controller('LoginCTRL', function($scope, $rootScope, $http){
+	.controller('LoginCTRL', function(
+		$scope, 
+		$rootScope, 
+		$http,
+		$Session
+		){
 		$scope.user = {};
 		$rootScope.user = $scope.user;
 
