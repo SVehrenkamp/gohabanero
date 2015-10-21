@@ -15,16 +15,15 @@ angular.module('ShopCTRL', [])
 	});
 
 	$scope.checkSession = function(){
-
-		if ($cart.get_items().length < 1) {
-			$Session.removeItem('cartItems');
-		} else {
-			var cartItems = JSON.parse($Session.getItem('cartItems'));
-			if (cartItems) {
-				cartItems.forEach(function(index){
-					$scope.sauces[index].addedToCart = true;
-				});
-			}
+		var cart = $Session.getState();
+		if (cart) {
+			console.log(cart);
+			cart.forEach(function(item){
+				var index = item.id - 1;
+				$scope.sauces[index].addedToCart = true;
+				$scope.sauces[index].qty = item.qty;
+				console.log($scope.sauces[index]);
+			});
 		}
 	}
 

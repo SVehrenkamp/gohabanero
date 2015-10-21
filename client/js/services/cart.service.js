@@ -47,23 +47,7 @@ angular.module('Cart', [])
 					cart_items[index] = item;
 				}
 
-				var CartSession = JSON.parse($Session.getItem('cartItems'));
-				console.log(i);
-				if (!CartSession) {
-
-					console.log(true);
-					var arr = [];
-					arr.push(i);
-					arr = JSON.stringify(arr);
-					$Session.setItem('cartItems', arr);
-				} else {
-
-					console.log(false);
-					CartSession.push(i);
-					CartSession = JSON.stringify(CartSession);
-					$Session.setItem('cartItems', CartSession);
-
-				}
+				$Session.setItem('cartItems', item);
 
 				return cart_items;
 			},
