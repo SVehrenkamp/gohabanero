@@ -15,12 +15,16 @@ angular.module('Cart', [])
 		// 	qty: 1,
 		// 	price: 1300	 
 		// };
-		
+		var cartState = function(cart){
+			console.log($Session.getState());
+			return $Session.getState() || [];
+		};
 
 		var cart_items = [];
 		var cart_total = null;
 		var order_number = null;
 		var user = {};
+		cart_items = cartState();
 
 		return {
 			total: 0,

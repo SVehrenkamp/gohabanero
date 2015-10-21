@@ -17,12 +17,10 @@ angular.module('ShopCTRL', [])
 	$scope.checkSession = function(){
 		var cart = $Session.getState();
 		if (cart) {
-			console.log(cart);
 			cart.forEach(function(item){
-				var index = item.id - 1;
+				var index = item.product_id - 1;
 				$scope.sauces[index].addedToCart = true;
 				$scope.sauces[index].qty = item.qty;
-				console.log($scope.sauces[index]);
 			});
 		}
 	}
@@ -31,8 +29,6 @@ angular.module('ShopCTRL', [])
 	$scope.add_to_cart = function(index){
 		
 		var item = $scope.sauces[index];
-		console.log(index);
-		console.log(item);
 		$scope.sauces[index].addedToCart = true;
 		
 		$cart.add_item(item, index);

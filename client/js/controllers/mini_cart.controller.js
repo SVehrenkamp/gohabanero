@@ -11,13 +11,11 @@ angular.module('MiniCartCTRL', [])
 
 	$scope.get_cart_count = function(){
 		$scope.cart_count = $cart.get_cart_total();
-
-		console.log($scope.cart_count);
 	};
 
 
 	$rootScope.$on('cart_updated', function(){
 		$scope.get_cart_count();
 	});
-
+	 $scope.get_cart_count();
 });

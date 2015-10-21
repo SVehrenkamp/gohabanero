@@ -9,6 +9,7 @@ angular.module('CartCTRL', [])
 		){
 		
 		var cart_total = null;
+		
 		$scope.items_in_cart = $cart.get_items();
 
 		$scope.total = $cart.get_cart_total();
