@@ -89,4 +89,12 @@ angular.module('App', ['ui.router', 'LoginCTRL', 'ShopCTRL', 'CheckoutCTRL', 'Mi
 				}
 			}
 		});
+
+
+})
+.run(function($rootScope){
+	$rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromeState, fromParams){
+		window.scrollTo(0,0);
+	});
+
 });

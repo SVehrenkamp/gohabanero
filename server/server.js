@@ -53,6 +53,37 @@ var send_confirmation = function(order){	//Add Message Template Here
 	});
 
 }
+//Send Shipping Email
+var send_shipping = function(order){	//Add Message Template Here
+	var message = require('../email/shipping.json');
+	var tpldata = order;
+	var templateString = null;
+
+	fs.readFile(path.join(__dirname, '../email/order_shipped.ejs'), 'utf8', function(err, data){
+		if(err) throw err;
+		templateString = data;
+		var template = ejs.render(templateString, tpldata);
+		message.html = template;
+		message.to[0].email = tpldata.email;
+		message.to[0].name = tpldata.first_name +' '+tpldata.last_name;
+		message.merge_vars[0].rcpt = tpldata.email;
+		message.recipient_metadata[0].rcpt = tpldata.email;
+
+
+		var async = false;
+		var ip_pool = "Main Pool";
+		
+		mandrill_client.messages.send({"message": message, "async": async, "ip_pool": ip_pool}, function(result) {
+		    console.log(result);
+		}, function(e) {
+		    // Mandrill returns the error as an object with name and message keys
+		    console.log('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+		    // A mandrill error occurred: Unknown_Subaccount - No subaccount exists with the id 'customer-123'
+		});		
+
+	});
+
+}
 
 //Save Order Data to Mongo
 app.use('/complete-order', loopback.bodyParser(), function(req, res){
@@ -76,9 +107,7 @@ app.use('/get_order', loopback.bodyParser(), function(req, res){
 });
 app.use('/ship_order', loopback.bodyParser(), function(req, res){
 	var order = req.body.order;
-	Cart.ship_order(order, function(obj){
-		res.json(obj);
-	});
+	Cart.ship_order(order, send_shipping);
 });
 
 

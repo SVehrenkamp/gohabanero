@@ -1,5 +1,5 @@
 angular.module('Cart', [])
-	.service('$cart', function($http, $Session){
+	.service('$cart', function($http, $Session, $rootScope){
 		//Mock Data
 		// var item = {
 		// 	thumbnail: '/img/product.png',
@@ -123,6 +123,9 @@ angular.module('Cart', [])
 
 					self.save_order(user);
 					
+					$Session.clear();
+					cart_items = cartState();
+					$rootScope.$emit('cart_updated');
 					response('Success');
 
 				} else{

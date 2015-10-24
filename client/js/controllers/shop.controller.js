@@ -36,6 +36,6 @@ angular.module('ShopCTRL', [])
 
 		$rootScope.$emit('cart_updated');
 	};
-	
+
 
 });
