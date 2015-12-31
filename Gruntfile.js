@@ -40,18 +40,27 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      css: {
-        src: ["client/css/main.css"],
-        dest: "generated/css/main.min.css"
-      }
-    },
-    cssmin: {
-      add_banner: {
-        options: "<%= banner %>",
-        files: {
-          'generated/v6/css/main.min.css': ["client/css/main.css"]
-        }
-      }
+      js: {
+        src: [
+          'client/js/vendor/angular/angular.min.js', 
+          'client/js/vendor/angular-ui-router/release/angular-ui-router.min.js', 
+          'client/js/vendor/angular-animate/angular-animate.min.js',
+          'client/js/vendor/jquery/dist/jquery.min.js',
+          'client/js/vendor/underscore/underscore-min.js',
+          'client/js/app.js',
+          'client/js/services/cart.service.js',
+          'client/js/services/session.service.js',
+          'client/js/controllers/checkout.controller.js',
+          'client/js/controllers/shop.controller.js',
+          'client/js/controllers/mini_cart.controller.js',
+          'client/js/controllers/cart.controller.js',
+          'client/js/controllers/confirm.controller.js',
+          'client/js/controllers/dashboard.controller.js',
+          'client/js/controllers/login.controller.js',
+          'client/js/controllers/order.controller.js'
+        ],
+        dest: 'client/js/bundle.js',
+      },
     },
     sass: {
       dist: {
@@ -99,7 +108,7 @@ module.exports = function(grunt) {
   //grunt.option
   //grunt.loadTasks("tasks");
 
-  grunt.registerTask('default', ['express:dev', 'sass', 'watch:sass']);
+  grunt.registerTask('default', ['express:dev', 'sass', 'concat', 'watch:sass']);
   //grunt.registerTask('subscriptions', ['express:dev', 'sass:subscriptions', 'watch:sass']);
   // grunt.registerTask("deploy", ["clean", "updateConfig", "sass", "requirejs", "copy:main", "sftp-deploy:config", "http", "sftp-deploy:build", "express:dev", "open", "watch"]);
   

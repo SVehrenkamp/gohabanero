@@ -350,6 +350,15 @@ div{
 	}
 }
 
+div#login_wrapper {
+	input {
+		margin:5px 0px;
+		padding:10px;
+	}
+	button {
+		padding:20px 0px;
+	}
+}
 .footer{
 	padding:20px 0px;
 	width:100%;
@@ -434,6 +443,9 @@ div{
 		.home-view,
 		 #cart_wrapper, 
 		 #checkout_wrapper,
+		 #order_wrapper,
+		 #dashboard_wrapper,
+		 #login_wrapper,
 		 #try,
 		 #follow{
 			-webkit-animation:fade-in 0.5s;
@@ -451,6 +463,9 @@ div{
 		.buy-view, 
 		#cart_wrapper, 
 		#checkout_wrapper,
+		 #order_wrapper,
+		 #dashboard_wrapper,
+		 #login_wrapper,
 		 #try,
 		 #follow {
 			-webkit-animation:fade-in 0.5s;
@@ -463,6 +478,9 @@ div{
 		.home-view, 
 		#cart_wrapper, 
 		#checkout_wrapper,
+		 #order_wrapper,
+		 #dashboard_wrapper,
+		 #login_wrapper,
 		 #try,
 		 #follow{
 			-webkit-animation:fade-out 0.25s;
@@ -478,6 +496,9 @@ div{
 		.buy-view, 
 		#cart_wrapper, 
 		#checkout_wrapper,
+		 #order_wrapper,
+		 #dashboard_wrapper,
+		 #login_wrapper,
 		 #try,
 		 #follow{
 			-webkit-animation:fade-out 0.25s;
