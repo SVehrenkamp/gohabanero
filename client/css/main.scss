@@ -2,9 +2,16 @@
 @import "la-babaca.css";
 
 /*Variables*/
-$orange:#FF9900;
 $gray:#555555;
 
+$red: #cc0000;
+$dark_red: #990000;
+
+$orange: #E08D26;
+$dark_orange: #c97c1d;
+
+$green: #008900;
+$dark_green: #006600;
 html, body{
 	height:100%;
 }
@@ -24,6 +31,70 @@ h2{
     text-shadow: 0px 1px 1px #777;
     border-bottom:2px solid;
 
+}
+.btn-order {
+	border-radius:5px;
+    border: 0 none;
+    background: $orange;
+    border-bottom: 5px solid $dark_orange;
+    margin: 0 auto 10px;
+    float: none;
+    text-shadow:none;
+    color:#FFFFFF;
+}
+.btn-order:hover{
+	text-decoration:none;
+	color:#FFFFFF;
+	background:$dark_orange;
+}
+.order-btns{
+	overflow:auto;
+	text-align:center;
+}
+.cta {
+	color:$gray;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.disabled {
+	opacity:0.3;
+}
+.orange {
+	color:$orange;
+}
+.green {
+	color:$green;
+}
+.red {
+	color:$red;
+}
+
+#flavors {
+	div.flavor{
+		margin:0.5em 0;
+		text-align:left;
+		@media (min-width: 1200px) {
+			text-align:center;
+		}
+		h3 {
+			display:block;
+			float:left;
+			@media (min-width: 1200px) {
+				float:none
+			}
+		}
+		div.rating {
+			float:right;
+			margin:20px 0 10px 0;
+			@media (min-width: 1200px) {
+				float:none
+			}
+		}
+		div.description {
+			margin:5px 0 10px;
+		}
+	}
 }
 #gohabanero{
 	display: block;
@@ -127,8 +198,9 @@ h2{
 		left:5px;
 		z-index:9999;
 
-		img{
+		svg{
 			width:120px;
+			height:172px;
 		}
 	}
 	#top-bar {
@@ -214,8 +286,10 @@ h2{
 		}
 	}
 	.divider{
-		border-bottom:1px solid #ccc;
-		padding:0px 0px 20px 0px;
+    border-bottom: 1px solid #ccc;
+    display: block;
+    clear: both;
+    margin: 10px 0;
 	}
 	.jumbotron{
 		text-align:center;
@@ -325,6 +399,12 @@ h2{
 		text-align:center;
 		width:100%;
 		padding-top:40px;
+		p.try-temp {	
+		    color: #444444;
+		    font-size: 1.2em;
+		    font-family: 'Helvetica';
+		    line-height:1;
+		}
 		div.glyphicon{
 			font-size:6em;
 			color:$gray;
@@ -372,6 +452,14 @@ div#login_wrapper {
 	bottom:0;
 	margin:-100px auto 0px;
 	height:100px;
+
+	a {
+		color:#ffffff;
+		&:hover {
+			color:#ffffff;
+			text-decoration:none;
+		}
+	}
 }
 
 /*Animations*/
@@ -424,8 +512,10 @@ div#login_wrapper {
 	display:block;
 	margin:0 auto;
 	position:relative;
-	min-height:800px;
+	min-height:860px;
 	padding-top:120px;
+	padding-bottom:60px;
+	overflow:auto;
 
 	@media (max-width: 550px) {
 	}
@@ -519,8 +609,9 @@ div#login_wrapper {
 				top:5px;
 				left:5px;
 				z-index:9999;
-				 img{
-				 	width:60px;
+				 svg{
+				 	width:100px;
+				 	height:172px;
 				 }
 		}
 

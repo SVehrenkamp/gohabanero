@@ -98,3 +98,59 @@ angular.module('App', ['ui.router', 'LoginCTRL', 'ShopCTRL', 'CheckoutCTRL', 'Mi
 	});
 
 });
+
+$.Color.hook("fill stroke");
+
+var Flavor = {};
+Flavor.state =  0;
+Flavor.el = {
+	logo: "#logo",
+	text: ".orange_text",
+};
+Flavor.flavors = [
+	{
+		color: "orange",
+		lt_hex: "#E08D26",
+		dk_hex: "#c97c1d",
+	},
+	{
+		color: "red",
+		lt_hex: "#cc0000",
+		dk_hex:"#990000",
+	},
+	{
+		color: "green",
+		lt_hex: "#008900",
+	}
+];
+
+Flavor.rotate = function(){
+	
+	setTimeout(function(){
+		console.log('Running...');
+		if (this.state < this.flavors.length) {
+			//SVG
+			$(this.el.logo).animate({"fill": this.flavors[this.state].lt_hex}, 2000);
+			$(this.el.text).animate({
+				"fill": this.flavors[this.state].lt_hex,
+				"color": this.flavors[this.state].lt_hex
+			}, 2000);
+			
+			this.state++;
+			this.rotate();
+		} else {
+			this.state = 0;
+			//SVG
+			$(this.el.logo).animate({"fill": this.flavors[this.state].lt_hex}, 2000);
+			$(this.el.text).animate({
+				"fill": this.flavors[this.state].lt_hex,
+				"color": this.flavors[this.state].lt_hex
+			}, 2000);
+			
+			this.state++;
+			this.rotate();
+		}
+	}.bind(this), 8000);
+}
+
+Flavor.rotate();

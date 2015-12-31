@@ -46,6 +46,7 @@ module.exports = function(grunt) {
           'client/js/vendor/angular-ui-router/release/angular-ui-router.min.js', 
           'client/js/vendor/angular-animate/angular-animate.min.js',
           'client/js/vendor/jquery/dist/jquery.min.js',
+          'client/js/vendor/color.js',
           'client/js/vendor/underscore/underscore-min.js',
           'client/js/app.js',
           'client/js/services/cart.service.js',
