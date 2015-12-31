@@ -656,3 +656,17 @@ div#login_wrapper {
 		}
 	}	
 }
+@media (max-width: 380px) {
+	#gohabanero{
+		.logo{
+			position:absolute;
+			top:5px;
+			left:5px;
+			z-index:9999;
+			 svg{
+			 	width:60px;
+			 	height:86px;
+			}
+		}
+	}
+}
